@@ -20,17 +20,54 @@ class _ShopPageState extends State<ShopPage> {
             color: Colors.grey[100],
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Search'),
               Icon(Icons.search),
             ],
           ),
-        )
+        ),
         //message
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 25.0),
+          child: Text(
+            'everyone flies.. some fly longer than others',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
 
         //hot picks
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                'Hot Picks 🔥',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              Text(
+                'See all',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        SizedBox(height: 10),
+
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return ShoeTile();
+            },
+          ),
+        ),
       ],
     );
   }
