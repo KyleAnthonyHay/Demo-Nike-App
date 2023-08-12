@@ -31,15 +31,31 @@ class ShoeTile extends StatelessWidget {
           //shoe price + details
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  //shoe name
-                  Text(shoe.name),
-
-                  //price
-                  Text(shoe.price),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //shoe name
+                    Text(
+                      shoe.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    //price
+                    Text(
+                      '\$' + shoe.price,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
               ),
 
               //plus button
