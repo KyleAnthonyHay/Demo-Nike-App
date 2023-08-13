@@ -26,7 +26,7 @@ class _CartPageState extends State<CartPage> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
               itemCount: value.getUserCart().length,
@@ -38,6 +38,28 @@ class _CartPageState extends State<CartPage> {
                 return CartItem(shoe: individualShoe);
               },
             ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(30),
+                  margin: EdgeInsets.symmetric(horizontal: 25),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Text(
+                    'PAY',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
