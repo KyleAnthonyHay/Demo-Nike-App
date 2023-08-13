@@ -27,13 +27,13 @@ class _CartItemState extends State<CartItem> {
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(8),
       ),
-      margin: EdgeInsets.only(bottom: 15, left: 25, right: 25),
+      margin: const EdgeInsets.only(bottom: 15, left: 25, right: 25),
       child: ListTile(
         leading: Image.asset(widget.shoe.imagePath),
         title: Text(widget.shoe.name),
         subtitle: Text(widget.shoe.price),
         trailing: IconButton(
-          icon: Icon(Icons.delete),
+          icon: const Icon(Icons.delete),
           onPressed: removeItemFromCart,
         ),
       ),
