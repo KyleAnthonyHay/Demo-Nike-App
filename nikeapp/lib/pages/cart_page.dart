@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../components/cart_item.dart';
 import '../models/cart.dart';
 import '../models/shoe.dart';
 
@@ -16,6 +17,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Consumer<Cart>(
       builder: (context, value, child) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
@@ -25,14 +27,18 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           const SizedBox(height: 10),
-          Expanded(child: ListView.builder(
-            itemBuilder: (context, index) {
-              //get individual shoe
-              Shoe individualShow = value.getUserCart()[index];
-              // return the cart Item
-              //return CartItem();
-            },
-          ))
+          Expanded(
+            child: ListView.builder(
+              itemCount: value.getUserCart().length,
+              itemBuilder: (context, index) {
+                //get individual shoe
+                Shoe individualShoe = value.getUserCart()[index];
+
+                // return the cart Item
+                return CartItem(shoe: individualShoe);
+              },
+            ),
+          ),
         ],
       ),
     );
